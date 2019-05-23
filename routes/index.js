@@ -1,4 +1,10 @@
-const router = require('express').Router();
+const userController = require('../controllers').user;
 
-//router.use('/users', require('./user')); 
-module.exports = router;
+module.exports = (app) => {
+  app.get('/api/v1/', (req, res) => res.status(200).send({
+    message: 'Agil.It API!',
+  }));
+
+  app.get('/api/v1/users', userController.list);
+  app.post('/api/v1/login', userController.login);
+}

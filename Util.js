@@ -4,8 +4,19 @@ module.exports = {
         try {
             response = await query()
         }catch(error){
-            response = error
+            return error
         }
         return response;
+    },
+    async SendResponse(query, res, successStatus) {
+        console.log('entrou sendResponse  ',typeof query());
+        
+        let response = await this.SafeQuery(query())
+        console.log('response',response);
+        if (response instanceof Error) {
+            res.status(500).json({ error: error.toString() });
+        } else {
+            res.status(successStatus | 200).json(response);
+        }
     }
 }

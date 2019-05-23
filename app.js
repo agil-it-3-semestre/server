@@ -1,8 +1,15 @@
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser');
 
+const User = require('./app/models').user;
+
+const app = express();
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/api/v1', require('./routes'));
+
+//User.create({name:"marcio",email:"marcio@teste.com",password:"1234"})
+
+require('./routes')(app);
 
 app.listen(3000);
 
