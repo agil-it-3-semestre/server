@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Ordem_Manutencao = sequelize.define('Ordem_Manutencao', {
-    id: DataTypes.NUMBER,
     numeroOrdem: DataTypes.NUMBER,
     idIntegracao: DataTypes.STRING,
     idEquipamento: DataTypes.NUMBER,
@@ -28,10 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       as: 'EquipamentoSuperior',
     })
     Ordem_Manutencao.hasOne(models.User, {
-      foreignKey: 'idResponsavel',
+      foreignKey: 'idResponsavelOrdem',
       as: 'Responsavel',
     })
-    Ordem_Manutencao.hasOne(models.TipoManutencao, {
+    Ordem_Manutencao.hasOne(models.Tipo_Manutencao, {
       foreignKey: 'idTipoManutencao',
       as: 'TipoManutencao',
     })

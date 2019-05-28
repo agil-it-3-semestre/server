@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'idNatureza',
       as: 'Natureza',
     })
-    Estoque.hasOne(models.idProduto, {
+    Estoque.hasOne(models.Produto, {
       foreignKey: 'idProduto',
       as: 'Produto',
     })

@@ -6,12 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     descricao: DataTypes.STRING,
     tempo: DataTypes.TIME,
     execucao: DataTypes.STRING
-  }, {});
-  Dados_Operacao.associate = function(models) {
-    Componente.belongsTo(models.Ordem_Manutencao, {
-      foreignKey: 'idOrdemManutencao',
-      onDelete: 'CASCADE',
-    });
-  };
+  }, {});  
+  
   return Dados_Operacao;
 };

@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Setor = sequelize.define('Setor', {
-    id: DataTypes.NUMBER,
     idIntegracao: DataTypes.STRING,
     descricao: DataTypes.STRING
   }, {});
