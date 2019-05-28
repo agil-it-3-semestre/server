@@ -9,16 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       idNatureza: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idEquipamento: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
       },
       estoqueDisponivel: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       estoqueReservado: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

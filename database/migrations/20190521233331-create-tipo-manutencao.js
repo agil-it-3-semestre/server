@@ -8,11 +8,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.NUMBER
-      },
       idIntegracao: {
-        type: Sequelize.NUMBER
+        type: Sequelize.STRING
       },
       descricao: {
         type: Sequelize.STRING

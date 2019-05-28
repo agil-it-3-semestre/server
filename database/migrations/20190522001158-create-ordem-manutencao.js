@@ -8,26 +8,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.NUMBER
-      },
       numeroOrdem: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idIntegracao: {
         type: Sequelize.STRING
       },
       idEquipamento: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idEquipamentoSuperior: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idResponsavelOrdem: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idTipoManutencao: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       requerParada: {
         type: Sequelize.BOOLEAN
@@ -51,7 +48,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       prioridade: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       exportado: {
         type: Sequelize.BOOLEAN

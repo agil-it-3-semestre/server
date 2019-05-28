@@ -9,19 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       idOrdemManutencao: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idComponente: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idEquipamento: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idNatureza: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       qtdUtilizada: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

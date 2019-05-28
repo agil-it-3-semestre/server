@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.NUMBER
-      },
       idIntegracao: {
         type: Sequelize.STRING
       },
@@ -18,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       idSetor: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

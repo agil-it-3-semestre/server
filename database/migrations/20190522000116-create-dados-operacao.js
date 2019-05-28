@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       idOrdemManutencao: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       idOperacao: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       descricao: {
         type: Sequelize.STRING
