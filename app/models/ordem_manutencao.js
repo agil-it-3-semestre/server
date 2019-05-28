@@ -26,10 +26,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'idEquipamentoSuperior',
       as: 'EquipamentoSuperior',
     })
-    Ordem_Manutencao.hasOne(models.User, {
-      foreignKey: 'idResponsavelOrdem',
-      as: 'Responsavel',
-    })
     Ordem_Manutencao.hasOne(models.Tipo_Manutencao, {
       foreignKey: 'idTipoManutencao',
       as: 'TipoManutencao',

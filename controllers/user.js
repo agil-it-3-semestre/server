@@ -1,5 +1,5 @@
 const Utils = require('../Util')
-const User = require('../app/models').user
+const User = require('../app/models').User
 
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op;
@@ -70,5 +70,8 @@ module.exports = {
     }
 
     res.json(response)
+  },
+  userCreate(obj){
+    return User.create(obj)
   }
 }
