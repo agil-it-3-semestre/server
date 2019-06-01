@@ -1,13 +1,14 @@
-const Utils = require('../Util')
-const User = require('../app/models').User
+const Utils = require('../helpers/utils')
+const User = require('../models').User
 
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op;
 
 module.exports = {
   async retrieve(req, res){
+    const {id} = req.params
     try {
-      response = await User.findOne({ where: { id: req.params.id } })
+      response = await User.findOne({ where: { id: id } })
     }catch(error){
       res.status(500).json({ error: error.toString() })
     }
@@ -22,32 +23,40 @@ module.exports = {
     res.json(response)
   },
   async create(req, res){
+    const {name, email, password, idIntegracao} = req.body
     try {
-      response = await User.create(req.body)
+      response = await User.create({
+        name: name,
+        email:email,
+        password:password,
+        idIntegracao:idIntegracao
+      })
     }catch(error){
       res.status(500).json({ error: error.toString() })
     }
     res.json(response)
   },
   async update(req, res) {
+    const {id} = req.params
     try {
-      response = await User.update(req.body, { where: { id: req.params.id } })
+      response = await User.update(req.body, { where: { id: id } })
     }catch(error){
       res.status(500).json({ error: error.toString() })
     }
     res.json(response)
   },
   async delete(req, res) {
+    const {id} = req.params
     try {
-      response = await User.destroy({ where: { id: req.params.id } })
+      response = await User.destroy({ where: { id: id } })
     }catch(error){
       res.status(500).json({ error: error.toString() })
     }
     res.json(response)
   },
   async login(req, res) {
-    let login = req.body.login
-    let password = req.body.password
+
+    const {login, password} = req.body
 
     try {
       response = await User.findOne({ where: {
@@ -70,8 +79,5 @@ module.exports = {
     }
 
     res.json(response)
-  },
-  userCreate(obj){
-    return User.create(obj)
   }
 }
