@@ -18,5 +18,11 @@ module.exports = {
         } else {
             res.status(successStatus | 200).json(response);
         }
+    },
+    verifyNotFound(value) {
+        if (value === null || value === undefined) {
+            return true
+        }
+        return false
     }
 }

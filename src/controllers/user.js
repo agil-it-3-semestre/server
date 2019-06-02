@@ -1,9 +1,6 @@
 const Utils = require('../helpers/utils')
 const User = require('../models').User
 
-const Sequelize = require('sequelize')
-const Op = Sequelize.Op;
-
 module.exports = {
   async retrieve(req, res){
     const {id} = req.params
@@ -12,6 +9,11 @@ module.exports = {
     }catch(error){
       res.status(500).json({ error: error.toString() })
     }
+    
+    if (Utils.verifyNotFound(response)) {
+      res.status(404).json({ error: "User not found" }) 
+    }
+    
     res.json(response)
   },
   async list(req, res){
@@ -23,13 +25,14 @@ module.exports = {
     res.json(response)
   },
   async create(req, res){
-    const {name, email, password, idIntegracao} = req.body
+    const {name, email, password, role, integrationId} = req.body
     try {
       response = await User.create({
         name: name,
         email:email,
         password:password,
-        idIntegracao:idIntegracao
+        role:role,
+        integrationId:integrationId
       })
     }catch(error){
       res.status(500).json({ error: error.toString() })
@@ -38,8 +41,15 @@ module.exports = {
   },
   async update(req, res) {
     const {id} = req.params
+    const {name, email, password, role, integrationId} = req.body
     try {
-      response = await User.update(req.body, { where: { id: id } })
+      response = await User.update({
+        name: name,
+        email:email,
+        password:password,
+        role:role,
+        integrationId:integrationId
+      }, { where: { id: id } })
     }catch(error){
       res.status(500).json({ error: error.toString() })
     }
@@ -56,26 +66,19 @@ module.exports = {
   },
   async login(req, res) {
 
-    const {login, password} = req.body
+    const {email, password} = req.body
 
     try {
       response = await User.findOne({ where: {
-        [Op.or]: [
-          {
-            name: login
-          },
-          {
-            email: login
-          }
-        ],
+        email: email,
         password: password
       } })
     } catch (error) {
       res.status(500).json({ error: error.toString() })
     }
 
-    if (response === null || response === undefined) {
-      res.status(401).json({ message: "Usuário não autenticado" })
+    if (Utils.verifyNotFound(response)) {
+      res.status(401).json({ error: "Email or password incorrect" })
     }
 
     res.json(response)

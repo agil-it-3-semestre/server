@@ -58,10 +58,14 @@ module.exports = (sequelize, DataTypes) => {
         ]
       })
     },
-    prioridade: {
+    priority: {
       type: DataTypes.ENUM({
         values: ['Baixa', 'Média', 'Alta']
       })
+    },
+    note: {
+      type: DataTypes.BLOB,
+      allowNull: true
     },
     exported: {
       type: DataTypes.BOOLEAN
@@ -92,11 +96,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'equipmentId'
     })
 
-    MaintenanceOrder.hasMany(models.Component, {
+    MaintenanceOrder.hasMany(models.Operation, {
       foreignKey: 'maintenanceOrderId'
     })
 
-    MaintenanceOrder.hasMany(models.Operation, {
+    MaintenanceOrder.hasOne(models.Operation, {
       foreignKey: 'maintenanceOrderId'
     })
   }

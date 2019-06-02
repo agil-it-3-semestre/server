@@ -12,13 +12,20 @@ module.exports = (sequelize, DataTypes) => {
           msg : 'Item quantity must have only numbers'
         }
       }
-    }
+    },
+    sequence: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: 'component_sequence'
+    },
+    operationId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: 'component_sequence'
+    },
   });
   Component.associate = function(models) {
-    Component.belongsTo(models.MaintenanceOrder, {
-      foreignKey: 'maintenanceOrderId'
-    })
-
+    
     Component.belongsTo(models.Storage, {
       foreignKey: 'storageId'
     })
