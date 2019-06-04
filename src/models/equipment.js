@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    integratinId: {
+    integrationId: {
       type: DataTypes.STRING,
       unique:true
     }

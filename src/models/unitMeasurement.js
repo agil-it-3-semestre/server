@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const UnitMeasurement = sequelize.define('unitMeasurement', {
-    integrationId: DataTypes.STRING,
     description: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -10,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
             msg: 'description can not be empty'
           }
         }
+      },
+      integrationId: {
+        type: DataTypes.STRING,
+        unique:true
       }
   }, {});
   UnitMeasurement.associate = function(models) {

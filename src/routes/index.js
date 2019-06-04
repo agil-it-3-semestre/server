@@ -4,4 +4,13 @@ module.exports = (app) => {
   }));
 
   require('./user')(app);
+  require('./maintenanceOrder')(app);
+  require('./equipment')(app);
+  require('./sector')(app);
+  require('./unitMeasurement')(app);
+  require('./storage')(app);
+  require('./item')(app);
+  require('./warehouse')(app);
+  require('./operation')(app);
+  require('./component')(app);
 }

@@ -26,15 +26,16 @@ module.exports = (sequelize, DataTypes) => {
   
   Operation.associate = function(models) {
     Operation.belongsTo(models.User, {
-      foreignKey: 'technicianId'
+      foreignKey: 'technicianId',
+      as: 'Technician'
     })
     
     Operation.hasMany(models.Component, {
       foreignKey: 'operationId'
     })
 
-    Operation.hasOne(models.Component, {
-      foreignKey: 'operationId'
+    Operation.belongsTo(models.MaintenanceOrder, {
+      foreignKey: 'maintenanceOrderId'
     })
   }
   return Operation;

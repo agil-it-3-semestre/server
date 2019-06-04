@@ -89,7 +89,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   MaintenanceOrder.associate = function(models) {
     MaintenanceOrder.belongsTo(models.User, {
-      foreignKey: 'responsibleId'
+      foreignKey: 'responsibleId',
+      as: 'Responsible'
     })
 
     MaintenanceOrder.belongsTo(models.Equipment, {

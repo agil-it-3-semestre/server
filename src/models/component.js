@@ -27,15 +27,24 @@ module.exports = (sequelize, DataTypes) => {
   Component.associate = function(models) {
     
     Component.belongsTo(models.Storage, {
-      foreignKey: 'storageId'
+      foreignKey: {
+        name: 'storageId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
     
     Component.belongsTo(models.Item, {
-      foreignKey: 'itemId'
+      foreignKey: {
+        name: 'itemId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
+    })
+
+    Component.belongsTo(models.Operation, {
+      foreignKey: 'operationId'
     })
   };
   return Component;
 };
-
-// 
-// onDelete: 'CASCADE',
