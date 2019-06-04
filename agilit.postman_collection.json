@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/users/1",
+							"raw": "http://localhost:3000/api/v1/users/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -45,7 +45,7 @@
 								"api",
 								"v1",
 								"users",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -100,7 +100,7 @@
 							"raw": "{\r\n    \"name\": \"Márcio\",\r\n    \"email\": \"marcio@senai.com.br\",\r\n    \"password\": \"NovaSenha#123\",\r\n    \"role\": \"Administrator\",\r\n    \"integrationId\": \"marcio1234\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/users/1",
+							"raw": "http://localhost:3000/api/v1/users/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -110,7 +110,7 @@
 								"api",
 								"v1",
 								"users",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -133,7 +133,7 @@
 							"raw": "{\r\n    \"name\": \"Márcio Henrique Meier\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/users/1",
+							"raw": "http://localhost:3000/api/v1/users/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -143,7 +143,7 @@
 								"api",
 								"v1",
 								"users",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -155,7 +155,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/users/1",
+							"raw": "http://localhost:3000/api/v1/users/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -165,7 +165,7 @@
 								"api",
 								"v1",
 								"users",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -235,7 +235,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/maintenance-orders/1/operations",
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}/operations",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -245,7 +245,7 @@
 								"api",
 								"v1",
 								"maintenance-orders",
-								"1",
+								"{{id}}",
 								"operations"
 							]
 						}
@@ -258,7 +258,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/maintenance-orders/1/operations/1",
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}/operations/{{sequence}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -268,9 +268,9 @@
 								"api",
 								"v1",
 								"maintenance-orders",
-								"1",
+								"{{id}}",
 								"operations",
-								"1"
+								"{{sequence}}"
 							]
 						}
 					},
@@ -282,7 +282,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/maintenance-orders/1",
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -292,7 +292,7 @@
 								"api",
 								"v1",
 								"maintenance-orders",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -347,7 +347,7 @@
 							"raw": "{\r\n    \"orderNumber\": 1234,\r\n    \"maintenanceType\": \"Corretiva\",\r\n    \"stoppedEquipment\": true,\r\n    \"codeABC\": \"cod123\",\r\n    \"plannedStart\": \"2019-06-03T22:16:46.368Z\",\r\n    \"programmedStart\": \"2019-06-03T22:16:46.368Z\",\r\n    \"plannedFinish\": \"2019-07-03T22:16:46.368Z\",\r\n    \"programmedFinish\": \"2019-07-03T22:16:46.368Z\",\r\n    \"status\": \"Criado\",\r\n    \"priority\": \"Media\",\r\n    \"exported\": false,\r\n    \"integrationId\": \"OMSAP-3313\",\r\n    \"responsibleId\": 2,\r\n    \"equipmentId\": 1\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/maintenance-orders/1",
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -357,7 +357,7 @@
 								"api",
 								"v1",
 								"maintenance-orders",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -380,7 +380,7 @@
 							"raw": "{\r\n    \"status\": \"Iniciado\",\r\n    \"priority\": \"Alta\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/maintenance-orders/1",
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -390,7 +390,7 @@
 								"api",
 								"v1",
 								"maintenance-orders",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -402,7 +402,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/maintenance-orders/1",
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -412,7 +412,64 @@
 								"api",
 								"v1",
 								"maintenance-orders",
-								"1"
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignOrder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"maintenance-orders",
+								"{{id}}",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAssignatures",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/maintenance-orders/{{id}}/assignatures",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"maintenance-orders",
+								"{{id}}",
+								"assignatures"
 							]
 						}
 					},
@@ -450,7 +507,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/operations/1/components",
+							"raw": "http://localhost:3000/api/v1/operations/{{id}}/components",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -460,7 +517,7 @@
 								"api",
 								"v1",
 								"operations",
-								"1",
+								"{{id}}",
 								"components"
 							]
 						}
@@ -473,7 +530,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/operations/1/components/1",
+							"raw": "http://localhost:3000/api/v1/operations/{{id}}/components/{{sequence}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -483,9 +540,9 @@
 								"api",
 								"v1",
 								"operations",
-								"1",
+								"{{id}}",
 								"components",
-								"1"
+								"{{sequence}}"
 							]
 						}
 					},
@@ -497,7 +554,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/operations/1",
+							"raw": "http://localhost:3000/api/v1/operations/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -507,7 +564,7 @@
 								"api",
 								"v1",
 								"operations",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -562,7 +619,7 @@
 							"raw": "{\r\n    \"description\": \"Vazamento no tanque\",\r\n    \"sequence\": 1,\r\n    \"maintenanceOrderId\": 1,\r\n    \"technicianId\": 1,\r\n    \"timeExecuted\": \"02:45:00\",\r\n    \"taskExecuted\": \"Colado furo gerado pelo derretimento de essências com cola especialziada\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/operations/1",
+							"raw": "http://localhost:3000/api/v1/operations/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -572,7 +629,7 @@
 								"api",
 								"v1",
 								"operations",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -595,7 +652,7 @@
 							"raw": "{\r\n    \"timeExecuted\": \"02:45:30\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/operations/1",
+							"raw": "http://localhost:3000/api/v1/operations/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -605,7 +662,7 @@
 								"api",
 								"v1",
 								"operations",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -617,7 +674,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/operations/1",
+							"raw": "http://localhost:3000/api/v1/operations/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -627,7 +684,7 @@
 								"api",
 								"v1",
 								"operations",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -665,7 +722,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/equipments/1",
+							"raw": "http://localhost:3000/api/v1/equipments/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -675,7 +732,7 @@
 								"api",
 								"v1",
 								"equipments",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -730,7 +787,7 @@
 							"raw": "{\r\n    \"description\": \"Tanque Misturador\",\r\n    \"sectorId\": 1,\r\n    \"integrationId\": \"IDSAP123\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/equipments/1",
+							"raw": "http://localhost:3000/api/v1/equipments/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -740,7 +797,7 @@
 								"api",
 								"v1",
 								"equipments",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -763,7 +820,7 @@
 							"raw": "{\r\n    \"description\": \"Tanque Misturador Essência\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/equipments/1",
+							"raw": "http://localhost:3000/api/v1/equipments/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -773,7 +830,7 @@
 								"api",
 								"v1",
 								"equipments",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -785,7 +842,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/equipments/1",
+							"raw": "http://localhost:3000/api/v1/equipments/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -795,7 +852,7 @@
 								"api",
 								"v1",
 								"equipments",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -855,7 +912,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/sectors/1",
+							"raw": "http://localhost:3000/api/v1/sectors/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -865,7 +922,7 @@
 								"api",
 								"v1",
 								"sectors",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -920,7 +977,7 @@
 							"raw": "{\r\n    \"description\": \"Produção de Essências A1\",\r\n    \"integrationId\": \"IDSAP123\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/sectors/1",
+							"raw": "http://localhost:3000/api/v1/sectors/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -930,7 +987,7 @@
 								"api",
 								"v1",
 								"sectors",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -953,7 +1010,7 @@
 							"raw": "{\r\n    \"description\": \"Produção de Essências A1L1\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/sectors/1",
+							"raw": "http://localhost:3000/api/v1/sectors/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -963,7 +1020,7 @@
 								"api",
 								"v1",
 								"sectors",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -975,7 +1032,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/sectors/1",
+							"raw": "http://localhost:3000/api/v1/sectors/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -985,7 +1042,7 @@
 								"api",
 								"v1",
 								"sectors",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1045,7 +1102,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/components/1",
+							"raw": "http://localhost:3000/api/v1/components/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1055,7 +1112,7 @@
 								"api",
 								"v1",
 								"components",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1110,7 +1167,7 @@
 							"raw": "{\r\n    \"quantityItem\": 2,\r\n    \"sequence\": 1,\r\n    \"operationId\": 1,\r\n    \"itemId\": 1,\r\n    \"storageId\" :1\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/components/1",
+							"raw": "http://localhost:3000/api/v1/components/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1120,7 +1177,7 @@
 								"api",
 								"v1",
 								"components",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1143,7 +1200,7 @@
 							"raw": "{\r\n    \"quantityItem\": 3\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/components/1",
+							"raw": "http://localhost:3000/api/v1/components/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1153,7 +1210,7 @@
 								"api",
 								"v1",
 								"components",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1165,7 +1222,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/components/1",
+							"raw": "http://localhost:3000/api/v1/components/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1175,7 +1232,7 @@
 								"api",
 								"v1",
 								"components",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1235,7 +1292,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/storages/1",
+							"raw": "http://localhost:3000/api/v1/storages/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1245,7 +1302,7 @@
 								"api",
 								"v1",
 								"storages",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1300,7 +1357,7 @@
 							"raw": "{\r\n    \"description\": \"Almoxarifado A1\",\r\n    \"integrationId\": \"IDSAP123\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/storages/1",
+							"raw": "http://localhost:3000/api/v1/storages/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1310,7 +1367,7 @@
 								"api",
 								"v1",
 								"storages",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1333,7 +1390,7 @@
 							"raw": "{\r\n    \"description\": \"Almoxarifado A1L1\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/storages/1",
+							"raw": "http://localhost:3000/api/v1/storages/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1343,7 +1400,7 @@
 								"api",
 								"v1",
 								"storages",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1355,7 +1412,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/storages/1",
+							"raw": "http://localhost:3000/api/v1/storages/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1365,7 +1422,7 @@
 								"api",
 								"v1",
 								"storages",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1425,7 +1482,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/itens/1",
+							"raw": "http://localhost:3000/api/v1/itens/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1435,7 +1492,7 @@
 								"api",
 								"v1",
 								"itens",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1490,7 +1547,7 @@
 							"raw": "{\r\n    \"description\": \"Almoxarifado De Boca\",\r\n    \"integrationId\": \"IDSAP123\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/itens/1",
+							"raw": "http://localhost:3000/api/v1/itens/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1500,7 +1557,7 @@
 								"api",
 								"v1",
 								"itens",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1523,7 +1580,7 @@
 							"raw": "{\r\n    \"description\": \"Alicate de Boca 20\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/itens/1",
+							"raw": "http://localhost:3000/api/v1/itens/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1533,7 +1590,7 @@
 								"api",
 								"v1",
 								"itens",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1545,7 +1602,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/itens/1",
+							"raw": "http://localhost:3000/api/v1/itens/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1555,7 +1612,7 @@
 								"api",
 								"v1",
 								"itens",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1825,7 +1882,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/units-measurement/1",
+							"raw": "http://localhost:3000/api/v1/units-measurement/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1835,7 +1892,7 @@
 								"api",
 								"v1",
 								"units-measurement",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1890,7 +1947,7 @@
 							"raw": "{\r\n    \"description\": \"Unitário\",\r\n    \"integrationId\": \"IDSAP123\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/units-measurement/1",
+							"raw": "http://localhost:3000/api/v1/units-measurement/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1900,7 +1957,7 @@
 								"api",
 								"v1",
 								"units-measurement",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1923,7 +1980,7 @@
 							"raw": "{\r\n    \"description\": \"Unitário\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/v1/units-measurement/1",
+							"raw": "http://localhost:3000/api/v1/units-measurement/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1933,7 +1990,7 @@
 								"api",
 								"v1",
 								"units-measurement",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -1945,7 +2002,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/units-measurement/1",
+							"raw": "http://localhost:3000/api/v1/units-measurement/{{id}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1955,7 +2012,7 @@
 								"api",
 								"v1",
 								"units-measurement",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
