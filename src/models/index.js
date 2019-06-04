@@ -14,6 +14,7 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 const models = {
+  Assignature:sequelize.import('./assignature'),
   Component:sequelize.import('./component'),
   Equipment:sequelize.import('./equipment'),
   Item:sequelize.import('./item'),
@@ -23,7 +24,7 @@ const models = {
   Storage:sequelize.import('./storage'),
   UnitMeasurement:sequelize.import('./unitMeasurement'),
   User:sequelize.import('./user'),
-  Warehouse:sequelize.import('./warehouse'),
+  Warehouse:sequelize.import('./warehouse')
 };
 //const models = {}
 // fs

@@ -100,9 +100,14 @@ module.exports = (sequelize, DataTypes) => {
     MaintenanceOrder.hasMany(models.Operation, {
       foreignKey: 'maintenanceOrderId'
     })
-
+    
     MaintenanceOrder.hasOne(models.Operation, {
       foreignKey: 'maintenanceOrderId'
+    })
+
+    MaintenanceOrder.hasMany(models.Assignature, {
+      foreignKey: 'maintenanceOrderId',
+      as: 'assignatures'
     })
   }
   return MaintenanceOrder;

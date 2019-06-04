@@ -7,6 +7,7 @@ const Item = require('../models').Item
 const Compoenent = require('../models').Component
 const UnitMeasurement = require('../models').UnitMeasurement
 const Storage = require('../models').Storage
+const Assignature = require('../models').Assignature
 
 module.exports = {
   async retrieve(req, res){
@@ -23,13 +24,14 @@ module.exports = {
             include: [
               { model: User, as: 'Technician', attributes: { exclude: ['password'] } },
               { model: Compoenent, include: [
-                {model: Item, include: [{model: UnitMeasurement}]},
-                {model: Storage}
-              ]}
+                { model: Item, include: [{model: UnitMeasurement}] },
+                { model: Storage }
+              ]},
             ]
           },
           { model: Equipment },
-          { model: User, as: 'Responsible', attributes: { exclude: ['password'] } }
+          { model: User, as: 'Responsible', attributes: { exclude: ['password'] } },
+          { model: Assignature, as: 'assignatures' }
         ]
       })
     }catch(error){
@@ -38,7 +40,7 @@ module.exports = {
     }
     
     if (Utils.verifyNotFound(response)) {
-      res.status(404).json({ error: `MaintenanceOrder ${id} not found` })
+      res.status(404).json({ error: `Maintenance Order ${id} not found` })
       return
     }
     
@@ -53,13 +55,14 @@ module.exports = {
             include: [
               { model: User, as: 'Technician', attributes: { exclude: ['password'] } },
               { model: Compoenent, include: [
-                {model: Item, include: [{model: UnitMeasurement}]},
-                {model: Storage}
+                { model: Item, include: [{model: UnitMeasurement}] },
+                { model: Storage }
               ]}
             ]
           },
           { model: Equipment },
-          { model: User, as: 'Responsible', attributes: { exclude: ['password'] } }
+          { model: User, as: 'Responsible', attributes: { exclude: ['password'] } },
+          { model: Assignature, as: 'assignatures' }
         ]
       })
     }catch(error){
@@ -133,7 +136,8 @@ module.exports = {
                 ]
               },
               { model: Equipment },
-              { model: User, as:'Responsible' }
+              { model: User, as:'Responsible' },
+              { model: Assignature, as: 'assignatures' }
             ]
           }
         }) 
@@ -141,7 +145,7 @@ module.exports = {
         res.json(maintenanceOrder)
         return
       } catch (error) {
-        //res.json({'message': `MaintenanceOrder ${id} updated sucessfully`})
+        //res.json({'message': `Maintenance Order ${id} updated sucessfully`})
         res.json(response)
         return
       }
@@ -158,7 +162,7 @@ module.exports = {
       let maintenanceOrder = await MaintenanceOrder.findOne({ where: { id: id } })
 
       if (Utils.verifyNotFound(maintenanceOrder)) {
-        res.status(404).json({ error: `MaintenanceOrder ${id} not found` })
+        res.status(404).json({ error: `Maintenance Order ${id} not found` })
         return
       }
 
@@ -180,7 +184,7 @@ module.exports = {
     }
 
     if (response == 1) {
-      res.json({'message': `MaintenanceOrder ${id} deleted sucessfully`})
+      res.json({'message': `Maintenance Order ${id} deleted sucessfully`})
     }
 
     res.json(response)
@@ -226,6 +230,38 @@ module.exports = {
       return
     }
 
+    res.json(response)
+  },
+  async assignOrder(req, res) {
+    const { id } = req.params
+    const { userId } = req.body
+    try {
+      response = await Assignature.create({
+        userId: userId,
+        maintenanceOrderId: id
+      })
+    }catch(error){
+      res.status(500).json({ error: error.toString() })
+      return
+    }
+    res.json(response)
+  },
+  async getAssignatures(req, res) {
+    const { id } = req.params
+
+    try {
+      response = await Assignature.findAll({
+        where: {
+          maintenanceOrderId: id
+        },
+        include: [
+          { model: User, attributes: { exclude: ['password'] } }
+        ]
+      })
+    }catch(error){
+      res.status(500).json({ error: error.toString() })
+      return
+    }
     res.json(response)
   }
 }

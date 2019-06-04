@@ -10,4 +10,6 @@ module.exports = (app) => {
   app.patch(baseAPI + '/:id', maintenanceOrderController.updateAttributes);
   app.get(baseAPI + '/:id/operations', maintenanceOrderController.listOperations);
   app.get(baseAPI + '/:id/operations/:sequence', maintenanceOrderController.retrieveOperationBySequence);
+  app.post(baseAPI + '/:id/assign', maintenanceOrderController.assignOrder);
+  app.get(baseAPI + '/:id/assignatures', maintenanceOrderController.getAssignatures);
 }
