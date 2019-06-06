@@ -67,6 +67,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BLOB,
       allowNull: true
     },
+    maintenanceSpot: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: 'Maintenance Spot can not be empty'
+        }
+      }
+    },
     exported: {
       type: DataTypes.BOOLEAN
     },

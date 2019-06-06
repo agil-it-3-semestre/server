@@ -24,7 +24,8 @@ const models = {
   Storage:sequelize.import('./storage'),
   UnitMeasurement:sequelize.import('./unitMeasurement'),
   User:sequelize.import('./user'),
-  Warehouse:sequelize.import('./warehouse')
+  Warehouse:sequelize.import('./warehouse'),
+  Notification:sequelize.import('./notification')
 };
 //const models = {}
 // fs
