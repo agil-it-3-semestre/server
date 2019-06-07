@@ -7,6 +7,7 @@ const Item = require('../models').Item
 const Compoenent = require('../models').Component
 const UnitMeasurement = require('../models').UnitMeasurement
 const Storage = require('../models').Storage
+const Sector = require('../models').Sector
 const Assignature = require('../models').Assignature
 
 module.exports = {
@@ -22,15 +23,15 @@ module.exports = {
           {
             model: Operation,
             include: [
-              { model: User, as: 'Technician', attributes: { exclude: ['password'] } },
+              { model: User, as: 'technician', attributes: { exclude: ['password'] } },
               { model: Compoenent, include: [
                 { model: Item, include: [{model: UnitMeasurement}] },
                 { model: Storage }
               ]},
             ]
           },
-          { model: Equipment },
-          { model: User, as: 'Responsible', attributes: { exclude: ['password'] } },
+          { model: Equipment, include: [ { model: Sector }] },
+          { model: User, as: 'responsible', attributes: { exclude: ['password'] } },
           { model: Assignature, as: 'assignatures' }
         ]
       })
@@ -53,15 +54,15 @@ module.exports = {
           {
             model: Operation,
             include: [
-              { model: User, as: 'Technician', attributes: { exclude: ['password'] } },
+              { model: User, as: 'technician', attributes: { exclude: ['password'] } },
               { model: Compoenent, include: [
                 { model: Item, include: [{model: UnitMeasurement}] },
                 { model: Storage }
               ]}
             ]
           },
-          { model: Equipment },
-          { model: User, as: 'Responsible', attributes: { exclude: ['password'] } },
+          { model: Equipment, include: [ { model: Sector }] },
+          { model: User, as: 'responsible', attributes: { exclude: ['password'] } },
           { model: Assignature, as: 'assignatures' }
         ]
       })
@@ -72,11 +73,26 @@ module.exports = {
     res.json(response)
   },
   async create(req, res){
-    const {orderNumber, maintenanceType, stoppedEquipment, codeABC, plannedStart, programmedStart, plannedFinish, programmedFinish, status, priority, exported, integrationId, responsibleId, equipmentId} = req.body
+    const {orderNumber,
+      maintenanceType,
+      stoppedEquipment,
+      codeABC,
+      plannedStart,
+      programmedStart,
+      plannedFinish,
+      programmedFinish,
+      status,
+      priority,
+      exported,
+      integrationId,
+      responsibleId,
+      equipmentId,
+      maintenanceSpot} = req.body
     try {
       response = await MaintenanceOrder.create({
         orderNumber: orderNumber,
         maintenanceType: maintenanceType,
+        maintenanceSpot: maintenanceSpot,
         stoppedEquipment: stoppedEquipment,
         codeABC: codeABC,
         plannedStart: plannedStart,
@@ -131,12 +147,12 @@ module.exports = {
             include: [
               { model: Operation,
                 include: [
-                  { model: User, as:'Technician' },
-                  { model: Compoenent, as:'Compoenents', where: {operationId: id}}
+                  { model: User, as:'technician' },
+                  { model: Compoenent, where: {operationId: id}}
                 ]
               },
-              { model: Equipment },
-              { model: User, as:'Responsible' },
+              { model: Equipment, include: [ { model: Sector }] },
+              { model: User, as:'responsible' },
               { model: Assignature, as: 'assignatures' }
             ]
           }
@@ -197,7 +213,7 @@ module.exports = {
           maintenanceOrderId: id
         },
         include: [
-          { model: User, as:'Technician' },
+          { model: User, as:'technician' },
           { model: Compoenent },
         ]
       })
@@ -216,7 +232,7 @@ module.exports = {
           sequence: sequence
         },
         include: [
-          { model: User, as:'Technician' },
+          { model: User, as:'technician' },
           { model: Compoenent },
         ]
       })

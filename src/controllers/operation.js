@@ -16,7 +16,7 @@ module.exports = {
         },
         include: [
           { model: MaintenanceOrder },
-          { model: User, as:'Technician' },
+          { model: User, as:'technician' },
           { model: Component },
         ]
       })
@@ -37,7 +37,7 @@ module.exports = {
       response = await Operation.findAll({
         include: [
           { model: MaintenanceOrder },
-          { model: User, as:'Technician' },
+          { model: User, as:'technician' },
           { model: Component },
         ]
       })
@@ -89,7 +89,7 @@ module.exports = {
           },
           include: [
             { model: MaintenanceOrder },
-            { model: User, as:'Technician' },
+            { model: User, as:'technician' },
             { model: Component },
           ]
         })
@@ -117,7 +117,7 @@ module.exports = {
         },
         include: [
           { model: MaintenanceOrder },
-          { model: User, as:'Technician' },
+          { model: User, as:'technician' },
           { model: Component },
         ]
       })

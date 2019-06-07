@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   Operation.associate = function(models) {
     Operation.belongsTo(models.User, {
       foreignKey: 'technicianId',
-      as: 'Technician'
+      as: 'technician'
     })
     
     Operation.hasMany(models.Component, {

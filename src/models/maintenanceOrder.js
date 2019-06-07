@@ -99,7 +99,7 @@ module.exports = (sequelize, DataTypes) => {
   MaintenanceOrder.associate = function(models) {
     MaintenanceOrder.belongsTo(models.User, {
       foreignKey: 'responsibleId',
-      as: 'Responsible'
+      as: 'responsible'
     })
 
     MaintenanceOrder.belongsTo(models.Equipment, {
@@ -107,10 +107,6 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     MaintenanceOrder.hasMany(models.Operation, {
-      foreignKey: 'maintenanceOrderId'
-    })
-    
-    MaintenanceOrder.hasOne(models.Operation, {
       foreignKey: 'maintenanceOrderId'
     })
 
