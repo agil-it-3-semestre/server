@@ -13,4 +13,5 @@ module.exports = (app) => {
   require('./warehouse')(app);
   require('./operation')(app);
   require('./component')(app);
+  require('./notification')(app);
 }

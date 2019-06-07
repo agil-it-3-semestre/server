@@ -8,6 +8,7 @@ const item = require('./item');
 const warehouse = require('./warehouse');
 const operation = require('./operation');
 const component = require('./component');
+const notification = require('./notification');
 
 module.exports = {
   user,
@@ -19,5 +20,6 @@ module.exports = {
   item,
   warehouse,
   operation,
-  component
+  component,
+  notification
 };

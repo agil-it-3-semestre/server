@@ -1,5 +1,6 @@
 const Utils = require('../helpers/utils')
 const User = require('../models').User
+const Notification = require('../models').Notification
 
 module.exports = {
   async retrieve(req, res){
@@ -144,6 +145,30 @@ module.exports = {
       return
     }
 
+    res.json(response)
+  },
+  async getUserNotifications(req, res) {
+    
+    const {id} = req.params
+    
+    try {
+      response = await Notification.findAll({
+        where: {
+          userId:id
+        },
+        include: [
+          {
+            model: User,
+            attributes: {
+              exclude: ['password']
+            }
+          }
+        ]
+      })
+    }catch(error){
+      res.status(500).json({ error: error.toString() })
+      return
+    }
     res.json(response)
   }
 }
