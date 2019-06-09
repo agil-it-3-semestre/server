@@ -19,10 +19,18 @@ module.exports = (sequelize, DataTypes) => {
   Assignature.associate = function(models) {
     //*
     Assignature.belongsTo(models.MaintenanceOrder, {  
-      foreignKey: 'maintenanceOrderId'
+      foreignKey: {
+        name: 'maintenanceOrderId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
     Assignature.belongsTo(models.User, {
-      foreignKey: 'userId'
+      foreignKey: {
+        name: 'userId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })/**/
   }
   return Assignature;

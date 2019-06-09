@@ -17,7 +17,11 @@ module.exports = (sequelize, DataTypes) => {
   });
   Equipment.associate = function(models) {
     Equipment.belongsTo(models.Sector, {
-      foreignKey: 'sectorId'
+      foreignKey: {
+        name: 'sectorId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
   };
   return Equipment;

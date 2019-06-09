@@ -22,7 +22,11 @@ module.exports = (sequelize, DataTypes) => {
         model: models.Warehouse,
         unique: false
       },
-      foreignKey: 'storageId'
+      foreignKey: {
+        name: 'storageId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
   };
   return Storage;

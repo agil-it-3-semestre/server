@@ -22,11 +22,19 @@ module.exports = (sequelize, DataTypes) => {
         model: models.Warehouse,
         unique: false
       },
-      foreignKey: 'itemId'
+      foreignKey: {
+        name: 'itemId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
 
     Item.belongsTo(models.UnitMeasurement, {
-      foreignKey: 'unitMeasurementId'
+      foreignKey: {
+        name: 'unitMeasurementId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
   }
   return Item;

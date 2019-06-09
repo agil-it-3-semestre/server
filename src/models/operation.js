@@ -26,7 +26,11 @@ module.exports = (sequelize, DataTypes) => {
   
   Operation.associate = function(models) {
     Operation.belongsTo(models.User, {
-      foreignKey: 'technicianId',
+      foreignKey: {
+        name: 'technicianId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      },
       as: 'technician'
     })
     
@@ -35,7 +39,11 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Operation.belongsTo(models.MaintenanceOrder, {
-      foreignKey: 'maintenanceOrderId'
+      foreignKey: {
+        name: 'maintenanceOrderId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
   }
   return Operation;

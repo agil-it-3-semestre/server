@@ -43,7 +43,11 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Component.belongsTo(models.Operation, {
-      foreignKey: 'operationId'
+      foreignKey: {
+        name: 'operationId',
+        allowNull: false,
+        onDelete: 'CASCADE'
+      }
     })
   };
   return Component;
