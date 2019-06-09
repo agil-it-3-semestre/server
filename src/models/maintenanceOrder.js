@@ -65,7 +65,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     note: {
       type: DataTypes.BLOB,
-      allowNull: true
+      allowNull: true,
+      get() {
+        let note = this.getDataValue('note')
+        return (note === null || note === undefined)? note : note.toString('utf8');
+      },
     },
     maintenanceSpot: {
       type:DataTypes.STRING,

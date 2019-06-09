@@ -87,7 +87,8 @@ module.exports = {
       integrationId,
       responsibleId,
       equipmentId,
-      maintenanceSpot} = req.body
+      maintenanceSpot,
+      note} = req.body
     try {
       response = await MaintenanceOrder.create({
         orderNumber: orderNumber,
@@ -104,7 +105,8 @@ module.exports = {
         exported: exported,
         integrationId: integrationId,
         responsibleId: responsibleId,
-        equipmentId: equipmentId
+        equipmentId: equipmentId,
+        note: note
       })
     }catch(error){
       res.status(500).json({ error: error.toString() })
@@ -114,7 +116,21 @@ module.exports = {
   },
   async update(req, res) {
     const {id} = req.params
-    const {orderNumber, maintenanceType, stoppedEquipment, codeABC, plannedStart, programmedStart, plannedFinish, programmedFinish, status, priority, exported, integrationId, responsibleId, equipmentId} = req.body
+    const {orderNumber,
+      maintenanceType,
+      stoppedEquipment,
+      codeABC,
+      plannedStart,
+      programmedStart,
+      plannedFinish,
+      programmedFinish,
+      status,
+      priority,
+      exported,
+      integrationId,
+      responsibleId,
+      equipmentId,
+      note} = req.body
     try {
       response = await MaintenanceOrder.update({
         orderNumber: orderNumber,
@@ -130,7 +146,8 @@ module.exports = {
         exported: exported,
         integrationId: integrationId,
         responsibleId: responsibleId,
-        equipmentId: equipmentId
+        equipmentId: equipmentId,
+        note: note
       }, { where: { id: id } })
     }catch(error){
       res.status(500).json({ error: error.toString() })
