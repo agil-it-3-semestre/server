@@ -5,6 +5,7 @@ const User = require('../models').User
 const Component = require('../models').Component
 const Item = require('../models').Item
 const Storage = require('../models').Storage
+const UnitMeasurement = require('../models').UnitMeasurement
 
 module.exports = {
   async retrieve(req, res){
@@ -17,7 +18,10 @@ module.exports = {
         include: [
           { model: MaintenanceOrder },
           { model: User, as:'technician' },
-          { model: Component },
+          { model: Component, include: [
+            { model: Item, include: [{model: UnitMeasurement}] },
+            { model: Storage }
+          ]},
         ]
       })
     }catch(error){
@@ -38,7 +42,10 @@ module.exports = {
         include: [
           { model: MaintenanceOrder },
           { model: User, as:'technician' },
-          { model: Component },
+          { model: Component, include: [
+            { model: Item, include: [{model: UnitMeasurement}] },
+            { model: Storage }
+          ]},
         ]
       })
     }catch(error){
@@ -90,7 +97,10 @@ module.exports = {
           include: [
             { model: MaintenanceOrder },
             { model: User, as:'technician' },
-            { model: Component },
+            { model: Component, include: [
+              { model: Item, include: [{model: UnitMeasurement}] },
+              { model: Storage }
+            ]},
           ]
         })
 
@@ -118,7 +128,10 @@ module.exports = {
         include: [
           { model: MaintenanceOrder },
           { model: User, as:'technician' },
-          { model: Component },
+          { model: Component, include: [
+            { model: Item, include: [{model: UnitMeasurement}] },
+            { model: Storage }
+          ]},
         ]
       })
 

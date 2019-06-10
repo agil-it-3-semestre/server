@@ -5,15 +5,22 @@ const Notification = require('../models').Notification
 module.exports = {
   async retrieve(req, res){
     const {id} = req.params
+    let showPassword = req.query.showPassword;
+
+    let attributes = {}
+
+    if (showPassword !== 'true') {
+      attributes = {
+        exclude: ['password']
+      }
+    }
 
     try {
       response = await User.findOne({ 
         where: {
           id: id
         },
-        attributes: {
-          exclude: ['password']
-        }
+        attributes: attributes
       })
     }catch(error){
       res.status(500).json({ error: error.toString() })
@@ -37,13 +44,17 @@ module.exports = {
     res.json(response)
   },
   async create(req, res){
-    const {name, email, password, role, integrationId} = req.body
+    const {name, email, password, role, forceChangePassword, contact, bornDate, gender, integrationId} = req.body
     try {
       response = await User.create({
         name: name,
         email:email,
         password:password,
         role:role,
+        forceChangePassword: forceChangePassword,
+        contact: contact,
+        bornDate: bornDate,
+        gender: gender,
         integrationId:integrationId
       })
     }catch(error){
@@ -54,13 +65,17 @@ module.exports = {
   },
   async update(req, res) {
     const {id} = req.params
-    const {name, email, password, role, integrationId} = req.body
+    const {name, email, password, role, forceChangePassword, contact, bornDate, gender, integrationId} = req.body
     try {
       response = await User.update({
         name: name,
         email:email,
         password:password,
         role:role,
+        forceChangePassword: forceChangePassword,
+        contact: contact,
+        bornDate: bornDate,
+        gender: gender,
         integrationId:integrationId
       }, { where: { id: id } })
     }catch(error){

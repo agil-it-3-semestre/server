@@ -42,6 +42,21 @@ module.exports = (sequelize, DataTypes) => {
       }),
       allowNull:false
     },
+    contact: {
+      type: DataTypes.STRING
+    },
+    forceChangePassword: {
+      type: DataTypes.BOOLEAN,
+    },
+    bornDate: {
+      type: DataTypes.DATE
+    },
+    gender: {
+      type: DataTypes.ENUM({
+        values: ['Masculino', 'Feminino']
+      }),
+      allowNull: false
+    },
     integrationId: {
       type: DataTypes.STRING,
       unique:true
